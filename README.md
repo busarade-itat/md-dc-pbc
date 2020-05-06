@@ -5,7 +5,7 @@ using discriminant chronicle as features of a global classifier.
 
 The **_main.py_** is the entry point of the application: 
 - it allows to classify datasets using the discriminant chronicles or episodes as features. 
-- The path of the **DCM-MD** executable used to extract chronicles has to be written in the variable **_CPP_DCM_** in the file **_GLOBAL.py_**. 
+- The path of the **DCM-MD** (available at <https://gitlab.fit.cvut.cz/busarade/dcm-md>, must be built locally) executable used to extract chronicles has to be written in the variable **_CPP_DCM_** in the file **_GLOBAL.py_**. 
 
 ## Prerequisites
 
