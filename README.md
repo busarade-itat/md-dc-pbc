@@ -4,8 +4,8 @@ This Python script is dedicated to classify temporal sequence sets
 using discriminant chronicle as features of a global classifier. 
 
 The **_main.py_** is the entry point of the application: 
-- it allows to classify datasets using the discriminant chronicles or episodes as features. 
-- The path of the **DCM-MD** (available at <https://gitlab.fit.cvut.cz/busarade/dcm-md>, must be built locally) executable used to extract chronicles has to be written in the variable **_CPP_DCM_** in the file **_GLOBAL.py_**. 
+- it allows to classify datasets using the discriminant chronicles as features. 
+- The path of the **DCM-MD** (available at <https://github.com/busarade-itat/dcm-md>, must be built locally) executable used to extract chronicles has to be written in the variable **_CPP_DCM_** in the file **_GLOBAL.py_**. 
 
 ## Prerequisites
 
@@ -19,7 +19,7 @@ The path to **WEKA** JAR file used for classifying the chronicles has to be writ
 The command `./main.py datasets_new/datasets/proportionality_2D_legacy --fmin 0.3 --gmin 2 --mincs 2 --maxcs 5 --fold 5 --classifier svc --n 90 --k 1 --legacy --vecsize 2` will produce a directory with a name beginning by **_xp_** followed by a timestamp. 
 In this directory a file **_cmd_** will contain the command. 
 Five directories (ex0, ex1, ex2, ex3 and ex4) will contain the results of the 5 folds (`--fold 5`). 
-Two files are contained by each of those directories.
+Two files are contained in each of those directories.
 
 The **_chronicles_** file contains the extracted chronicles to classify the `proportionality_2D` dataset (`datasets/BIDE-D/blocks`). 
 Those chronicles were extracted with a minimal frequency of 30% (`--fmin 0.3`) and a minimal growth rate of 2 (`-gmin 2`). 
@@ -41,7 +41,7 @@ pos accuracy: 19.0/20.0 (0.95)
 neg accuracy: 15.0/20.0 (0.75)
 ```
 
-The **_chronicles_** file contains the classification results. 
+The **_chronicles_** file contains the resulting chronicles. 
 An example obtained from the previous command is:
 
 ```
@@ -116,14 +116,14 @@ class: neg
 sup(c,pos)/sup(c,neg): 32.0/11.0
 ```
 
-Those chronicles are the discriminant multidimensional chronicles for S+ (`pos.dat`) and S- (`neg.dat`).
+Those chronicles are multidimensional chronicles for S+ (`pos.dat`) and S- (`neg.dat`).
 
 The meaning of the output is as follows:
 - For example, for the first chronicle, `C0: {A(0), B(1), C(2), D(3), }` corresponds to the multiset of the chronicle,
-while the `C0` identifier denotes an ordinal number of the mined discriminant multidimensional chronicle.
+where the `C0` identifier denotes an ordinal number of the mined discriminant multidimensional chronicle.
 - The events are separated by commas.
 - The line `C(2),D(3): (<10,10>, <inf,inf>)` corresponds to a hyperrectangle constraint of the chronicle.
-- `C(2)` and `D(3)` correspond to indices and event type names in the multiset, it is so a temporal constraint between
+- `C(2)` and `D(3)` correspond to event type names and indices in the multiset, it is so a temporal constraint between
 - event type `C` and event type `D`. The temporal interval is defined by
 - `(<10,10>, <inf,inf>)` what means that the temporal constraint is `C [<10,10>, <inf,inf>] D`.
 - The line `class: pos` says that the chronicle is discriminant for S+ (for S- it would be `class: neg`).
